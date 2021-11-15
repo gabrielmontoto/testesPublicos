@@ -40,11 +40,13 @@ public class ManagerEstrategy : MonoBehaviour
         {
             InimigoProximosAtaques.text += proximoAtaqueInimigo[i] + "\n";
         }
-        AplicarElementosNosBotoes();
+        
         EscolherAlguemPraIniciar();
         inimigoImagem.color = cores.coresElementos(inimigo.TipoInimigo);
+        inimigo.ReceberArma(tipoDeArmas[Random.Range(0, tipoDeArmas.Length)]);
         textoElementoJogador.text = player.ElementoAtualPlayer.ToString();
         textoVidaJogador.text = player.Vida + "/10";
+        AplicarElementosNosBotoes();
     }
 
     private void AplicarElementosNosBotoes()

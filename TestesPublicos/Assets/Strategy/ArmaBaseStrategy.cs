@@ -11,6 +11,7 @@ public class ArmaBaseStrategy : MonoBehaviour
     [SerializeField] protected string nome;
     public string Nome { get { return nome; } }
     public int ValorDano { get { return valorDano; }  }
+    public bool Distante { get { return distante; } }
     // [SerializeField] GameObject QuemRecebeDano;
     // Start is called before the first frame update
     void Start()
@@ -24,8 +25,8 @@ public class ArmaBaseStrategy : MonoBehaviour
         TipoDeDano = elemento;
     }
 
-    public void Ataque(GameObject QuemRecebeDano)
+    public void Ataque(GameObject QuemRecebeDano, bool AtqueDistancia)
     {
-        TipoDeDano.CausarDano(valorDano, QuemRecebeDano);
+        TipoDeDano.CausarDano(valorDano, QuemRecebeDano, AtqueDistancia);
     }
 }

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class AguaEstrategy : ICausarDano
 {
-    public void CausarDano(int valor, GameObject quemRecebe)
+    public void CausarDano(int valor, GameObject quemRecebe, bool AtaqueDistante)
     {
-        quemRecebe.GetComponent<ITomarDano>().ReceberDano(valor, elementos.AGUA);
+        quemRecebe.GetComponent<ITomarDano>().ReceberDano(valor, elementos.AGUA, AtaqueDistante);
     }
 }
     

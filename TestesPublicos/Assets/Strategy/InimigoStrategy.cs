@@ -12,8 +12,9 @@ public class InimigoStrategy : MonoBehaviour, ITomarDano
     [SerializeField] PlayerStrategy player;
     public float Vida { get { return vida; } }
     public elementos TipoInimigo { get { return tipoInimigo; } set { tipoInimigo = value; } }
-    public void ReceberDano(int valor, elementos tipo)
+    public void ReceberDano(int valor, elementos tipo, bool ataqueDistante)
     {
+        if(ataqueDistante || armaEquipada.Distante==false)
         switch (tipo)
         {
             case elementos.FOGO:
@@ -84,11 +85,12 @@ public class InimigoStrategy : MonoBehaviour, ITomarDano
     public void ReceberArma(ArmaBaseStrategy arma)
     {
         armaEquipada = arma;
+        print(arma.Distante);
     }
     public void AtaqueInimigo()
     {
         armaEquipada.AtribuirElemento(RetornarElemento());
-        armaEquipada.Ataque(player.gameObject);
+        armaEquipada.Ataque(player.gameObject, armaEquipada.Distante);
     }
     private ICausarDano RetornarElemento()
     {

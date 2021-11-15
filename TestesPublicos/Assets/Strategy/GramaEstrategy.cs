@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class GramaEstrategy : ICausarDano
 {
-    public void CausarDano(int valor, GameObject quemRecebe)
+    public void CausarDano(int valor, GameObject quemRecebe,bool AtaqueDistante)
     {
-        quemRecebe.GetComponent<ITomarDano>().ReceberDano(valor,elementos.GRAMA);
+        quemRecebe.GetComponent<ITomarDano>().ReceberDano(valor,elementos.GRAMA,AtaqueDistante);
     }
 }

@@ -14,9 +14,10 @@ public class PlayerStrategy : MonoBehaviour, ITomarDano
 
     [SerializeField] ManagerEstrategy manager;
     public float Vida { get { return vida; } }
-    public void ReceberDano(int valor, elementos tipo)
+    public void ReceberDano(int valor, elementos tipo, bool ataqueDistante)
     {
-        switch (tipo)
+        if (ataqueDistante || armaBaseStrategy.Distante == false)
+            switch (tipo)
         {
             case elementos.FOGO:
                 if (elementoAtualPlayer == elementos.FOGO)
@@ -82,7 +83,7 @@ public class PlayerStrategy : MonoBehaviour, ITomarDano
             print("pew!");
             ICausarDano elemento = new GramaEstrategy();
             armaBaseStrategy.AtribuirElemento(elemento);
-            armaBaseStrategy.Ataque(inimigo);
+            armaBaseStrategy.Ataque(inimigo, armaBaseStrategy.Distante);
         }
     }
     public void botaoAtaqueEscolhido(ElementoEArmaStrategy elementoEArmaStrategy)
@@ -94,7 +95,7 @@ public class PlayerStrategy : MonoBehaviour, ITomarDano
 
             ICausarDano elemento = RetornarElemento();
             armaBaseStrategy.AtribuirElemento(elemento);
-            armaBaseStrategy.Ataque(inimigo);
+            armaBaseStrategy.Ataque(inimigo, armaBaseStrategy.Distante);
 
             //gamemanager e turno terminado
             manager.AtaquePlayer();

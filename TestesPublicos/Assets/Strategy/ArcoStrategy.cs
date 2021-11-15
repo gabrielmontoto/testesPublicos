@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ArcoStrategy : ArmaBaseStrategy
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         distante = true;
         nome = "Arco";
     }
+
 
 
 }
