@@ -12,6 +12,7 @@ public class ManagerEstrategy : MonoBehaviour
     [SerializeField] ArmaBaseStrategy[] tipoDeArmas;
     [SerializeField] List<elementos> proximoAtaqueInimigo;
 
+    [Space][Header("algo escrito")][Tooltip("vou escreveer algo aqui")]
     [SerializeField] Cores cores;
     [SerializeField] Turnos turnos;
     public Turnos TurnoJogo { get { return turnos; }  }
